@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  title         String?
+  department    String?
+  bio           String?
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  clerkId       String    @unique
+  positions     Position[]
+  interviews    Interview[]
+}
+
+model Candidate {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  phone         String?
+  resumeUrl     String?
+  skills        String[]
+  experience    String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  applications  Application[]
+  interviews    Interview[]
+}
+
+model Position {
+  id            String    @id @default(cuid())
+  title         String
+  department    String
+  location      String
+  type          String
+  description   String
+  requirements  String
+  status        String    @default("Open")
+  postedDate    DateTime  @default(now())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  createdBy     User      @relation(fields: [userId], references: [id])
+  userId        String
+  applications  Application[]
+}
+
+model Application {
+  id            String    @id @default(cuid())
+  status        String    @default("New")
+  matchScore    Int?
+  appliedDate   DateTime  @default(now())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  candidate     Candidate @relation(fields: [candidateId], references: [id])
+  candidateId   String
+  position      Position  @relation(fields: [positionId], references: [id])
+  positionId    String
+  interviews    Interview[]
+}
+
+model Interview {
+  id            String    @id @default(cuid())
+  scheduledFor  DateTime
+  duration      Int       @default(60) // in minutes
+  meetingUrl    String?
+  notes         String?
+  status        String    @default("Scheduled")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  application   Application @relation(fields: [applicationId], references: [id])
+  applicationId String
+  candidate     Candidate @relation(fields: [candidateId], references: [id])
+  candidateId   String
+  scheduler     User      @relation(fields: [userId], references: [id])
+  userId        String
+}
+
