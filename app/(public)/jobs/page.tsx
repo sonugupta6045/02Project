@@ -29,65 +29,70 @@ export default function JobsPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-background rounded-lg shadow-lg p-6 max-w-4xl mx-auto -mb-12 relative z-10"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  placeholder="Search jobs..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
+         <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  className="bg-background rounded-lg shadow-lg p-6 max-w-4xl mx-auto -mb-12 relative z-10"
+>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {/* Search Input */}
+    <div className="relative">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+      <Input
+        placeholder="Search jobs..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="pl-10 text-foreground placeholder:text-muted-foreground"
+      />
+    </div>
 
-              <div className="relative">
-                <Select value={department} onValueChange={setDepartment}>
-                  <SelectTrigger className="w-full">
-                    <div className="flex items-center">
-                      <Briefcase className="mr-2 h-4 w-4 text-muted-foreground" />
-                      <SelectValue placeholder="Department" />
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Departments</SelectItem>
-                    <SelectItem value="engineering">Engineering</SelectItem>
-                    <SelectItem value="design">Design</SelectItem>
-                    <SelectItem value="marketing">Marketing</SelectItem>
-                    <SelectItem value="product">Product</SelectItem>
-                    <SelectItem value="sales">Sales</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+    {/* Department Dropdown */}
+    <div className="relative">
+      <Select value={department} onValueChange={setDepartment}>
+        <SelectTrigger className="w-full text-foreground">
+          <div className="flex items-center">
+            <Briefcase className="mr-2 h-4 w-4 text-muted-foreground" />
+            <SelectValue placeholder="Department" className="text-foreground" />
+          </div>
+        </SelectTrigger>
+        <SelectContent className="text-foreground bg-background">
+          <SelectItem value="all">All Departments</SelectItem>
+          <SelectItem value="engineering">Engineering</SelectItem>
+          <SelectItem value="design">Design</SelectItem>
+          <SelectItem value="marketing">Marketing</SelectItem>
+          <SelectItem value="product">Product</SelectItem>
+          <SelectItem value="sales">Sales</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
 
-              <div className="relative">
-                <Select value={location} onValueChange={setLocation}>
-                  <SelectTrigger className="w-full">
-                    <div className="flex items-center">
-                      <MapPin className="mr-2 h-4 w-4 text-muted-foreground" />
-                      <SelectValue placeholder="Location" />
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">All Locations</SelectItem>
-                    <SelectItem value="remote">Remote</SelectItem>
-                    <SelectItem value="new-york">New York, NY</SelectItem>
-                    <SelectItem value="san-francisco">San Francisco, CA</SelectItem>
-                    <SelectItem value="london">London, UK</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
+    {/* Location Dropdown */}
+    <div className="relative">
+      <Select value={location} onValueChange={setLocation}>
+        <SelectTrigger className="w-full text-foreground">
+          <div className="flex items-center">
+            <MapPin className="mr-2 h-4 w-4 text-muted-foreground" />
+            <SelectValue placeholder="Location" className="text-foreground" />
+          </div>
+        </SelectTrigger>
+        <SelectContent className="text-foreground bg-background">
+          <SelectItem value="all">All Locations</SelectItem>
+          <SelectItem value="remote">Remote</SelectItem>
+          <SelectItem value="new-york">New York, NY</SelectItem>
+          <SelectItem value="san-francisco">San Francisco, CA</SelectItem>
+          <SelectItem value="london">London, UK</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+  </div>
 
-            <div className="mt-4 flex justify-center md:justify-end">
-              <Button className="w-full md:w-auto">Search Jobs</Button>
-            </div>
-          </motion.div>
+  {/* Search Button */}
+  <div className="mt-4 flex justify-center md:justify-end">
+    <Button className="w-full md:w-auto">Search Jobs</Button>
+  </div>
+</motion.div>
+
         </div>
       </div>
 
