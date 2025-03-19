@@ -101,7 +101,7 @@ export default function Home() {
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black/20 backdrop-blur-sm">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-primary-foreground/5"></div>
               <img
-                src="/placeholder.svg?height=600&width=1200"
+                src="/project01.png"
                 alt="HR Dashboard Preview"
                 className="w-full h-auto relative z-10 opacity-90 mix-blend-luminosity"
               />

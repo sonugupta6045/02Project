@@ -152,7 +152,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium">Phone</h3>
-                      <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground">+91 (555) 123-4567</p>
                       <p className="text-sm text-muted-foreground mt-1">Monday-Friday, 9am-5pm EST</p>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-medium">Location</h3>
-                      <p className="text-muted-foreground">123 Business Ave, San Francisco, CA</p>
+                      <p className="text-muted-foreground">6VV4+C8X, Sardar Vallabhbhai Patel Rd, Mount Poinsur, Borivali West, Mumbai, Maharashtra 400103.</p>
                       <p className="text-sm text-muted-foreground mt-1">Visit us by appointment</p>
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export default function ContactPage() {
                 <div className="pt-8">
                   <div className="relative rounded-lg overflow-hidden h-64 border border-border">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0968143067466!2d-122.41941638468204!3d37.77492997975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter%20HQ!5e0!3m2!1sen!2sus!4v1648181241223!5m2!1sen!2sus"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.890206530682!2d72.8558439!3d19.243616199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b13affffffff%3A0xfd071f1d3a7844ef!2sSt.%20Francis%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1742316505926!5m2!1sen!2sin"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
